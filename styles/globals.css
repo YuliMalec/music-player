@@ -11,9 +11,10 @@ body {
       transparent,
       #a3a3a3
     )
-    #f472b6;
+    #f22004;
 }
 
 html,body,:root{
   height: 100%;
+  color:white;
 }

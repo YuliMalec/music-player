@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/Sidebar";
-
+import Header from '@/components/Header'
 
 export default async function Home (
 )  {
@@ -9,7 +9,7 @@ export default async function Home (
     <div className="
   
     min-h-screen
-    bg-neutral-600
+    bg-neutral-800
     rounded-lg
     h-full
     w-full
@@ -17,7 +17,7 @@ export default async function Home (
     overflow-hidden
     overflow-y-auto">
    
-    hello
+    <Header/>
     </div>
   );
 }

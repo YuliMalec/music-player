@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import {Sidebar} from "@/components/Sidebar";
-import { Main } from "@/components/Main";
+import { SessionProvider } from "next-auth/react"
+import  {ModalProvider}  from "@/providers/ModalProvider";
+import ToasterProvider from "@/providers/ToasterProvider";
+import { NextAuthProvider } from "@/providers/NextAuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,11 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-       
+        <NextAuthProvider>
+        <ToasterProvider/>
+  <ModalProvider/>
     <Sidebar>
       {children}
      </Sidebar>
-   
+  </NextAuthProvider>
       </body>
     </html>
   );

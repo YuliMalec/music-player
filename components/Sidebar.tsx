@@ -5,6 +5,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 import { BsFillSearchHeartFill } from "react-icons/bs";
 
 import { SidebarItem } from './SidebarItem';
+import {Library} from './Library';
+import useAuthModal from '@/hooks/useUploadModal';
 
 interface SidebarProp{
   children:React.ReactNode
@@ -13,7 +15,7 @@ export const Sidebar:FC<SidebarProp> = ({
   children
 }) =>{
   const pathname = usePathname()
-
+  const authModal = useAuthModal()
   const routes = [
     {
        icon:RiHomeHeartFill,
@@ -29,6 +31,13 @@ export const Sidebar:FC<SidebarProp> = ({
     }
   ]
 
+
+  const onChange = (open:boolean) =>{
+    if(!open){
+    ////reset form
+      authModal.onClose()
+  }
+  }
   return (
     <div className={`
     flex
@@ -47,10 +56,10 @@ export const Sidebar:FC<SidebarProp> = ({
       '>
       <div className='
       w-[300px]
-       h-fit
-        bg-neutral-600
-        rounded-lg
-        p-5'>
+      h-fit
+    bg-neutral-600
+      rounded-lg
+      p-5'>
       {routes.map((item)=>(
         <SidebarItem key={item.label}{...item}/>
       ))}
@@ -61,7 +70,7 @@ export const Sidebar:FC<SidebarProp> = ({
        rounded-lg
         
        '>
-        Library
+      <Library />
       </div>
       </div>
       <main className='
