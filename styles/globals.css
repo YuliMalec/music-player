@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      #a3a3a3
+    )
+    #f22004;
+}
+
+html,body,:root{
+  height: 100%;
+  color:white;
+}
